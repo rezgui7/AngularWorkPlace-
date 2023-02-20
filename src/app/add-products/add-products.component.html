@@ -1,0 +1,25 @@
+<h2 class="center"> Add New Product </h2>
+
+
+<form #addform="ngForm" (ngSubmit)="addForm(addform)">
+    <label for="">Title</label>
+    <input type="text" name="title" [(ngModel)]="P.title" required minlength="4" #title="ngModel">
+    <span *ngIf="title?.errors?.['minlength'] && title.touched" style="color: red;">Title must be at least 4 caracters </span>
+    <span *ngIf="title?.errors?.['required'] && title.touched" style="color: red;">Title is required </span>
+
+<section ngModelGroup="details" #details="ngModelGroup">
+<br>
+    <label for="">Price</label> 
+    <input type="text" name="price" [(ngModel)]="P.price" required #price="ngModel" class="form-control" [class.is-invalid]="price.invalid && price.touched">
+    <span *ngIf="price.invalid && price.touched" style="color: red;"> price is required </span>
+
+<br>
+    <label for="">Quantity</label> 
+    <input type="text" name="quantity" [(ngModel)]="P.quantity" > 
+<br>
+</section>
+    <button class="btn btn-primary" type="submit" [disabled]="addform.invalid"> Add </button>
+{{P.title}} {{P.price}} {{P.quantity}}
+
+
+</form>

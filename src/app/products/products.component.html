@@ -1,0 +1,23 @@
+search: <input type="text" [(ngModel)]="prix">
+
+<section *ngFor="let p of listProdcut">
+<div class="card" style="width: 18rem;" *ngIf="p.price <= prix || !prix ">
+    <img class="card-img-top" src="/assets/img/gear-1.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{p.title}}</h5>
+      <p class="card-text">{{p.price}}</p>
+      <p class="card-text">{{p.quantity}}</p>
+      <p class="card-text">{{p.like}}</p>
+      <button class="btn btn-primary" (click)="Buy(p)" [disabled]="p.quantity==0">Buy</button>
+      <button class="btn btn-primary" (click)="Like(p)" >Like</button>
+      <button class="btn btn-primary" (click)="ShowDetails(p.id)" >Show Details</button>
+      <a [routerLink]="['productsDetails',p.id]" [queryParams]="{name:p.title}">Details</a>
+      
+
+    </div>
+  </div>
+</section>
+<section>
+  <button class="btn btn-primary" routerLink="/addProduct"> Add new product </button>
+</section>
+<router-outlet></router-outlet>
