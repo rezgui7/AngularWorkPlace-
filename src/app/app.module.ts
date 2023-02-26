@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddProductsComponent } from './add-products/add-products.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { AddProductsComponent } from './add-products/add-products.component';
     ContactComponent,
     FooterComponent,
     NotFoundComponent,
-    AddProductsComponent
+    AddProductsComponent,
+    
   ],
   imports: [
     BrowserModule,

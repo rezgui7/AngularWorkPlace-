@@ -1,6 +1,8 @@
+<h2 class="center container"> List Products</h2>
+
 search: <input type="text" [(ngModel)]="prix">
 
-<section *ngFor="let p of listProdcut">
+<section *ngFor="let p of productList,let i=index">
 <div class="card" style="width: 18rem;" *ngIf="p.price <= prix || !prix ">
     <img class="card-img-top" src="/assets/img/gear-1.jpg" alt="Card image cap">
     <div class="card-body">
